@@ -15,10 +15,6 @@ class App extends React.Component {
 
       numDee: 0,
       numDee2: 0,
-   
-    }
-
-      this.state = {
       numCase: 0,
       numCase2: 0,
       player1Tokens: [false, false, false, false],
@@ -27,6 +23,7 @@ class App extends React.Component {
      
 
     }
+    
 
     this.lancerDee = this.lancerDee.bind(this)
     this.renderVictory = this.renderVictory.bind(this)
@@ -197,7 +194,9 @@ renderBoard() {
   render() {
 
     return (
+     
       <div>{this.renderVictory()}</div>
+      
     )
   }
 

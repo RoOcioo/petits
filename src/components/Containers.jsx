@@ -6,7 +6,7 @@ class Containers extends Component {
     render() {
         return (
   
-<div className="containerP1">
+                <div className="containerP1">
                     <div className="divchildP1">
                       <div >
                         {this.props.circleColor}={this.props.player1Tokens[0] ? "#4646e8" : "black"} 
@@ -24,13 +24,13 @@ class Containers extends Component {
 <div className="containerP2">
                     <div className="divchildP2">
                       <div >
-                      {this.props.circleColor}={this.props.player2Tokens[0] ? "#c30c0c" : "black"} 
-                      {this.props.circleColor}={this.props.player2Tokens[1] ? "#c30c0c" : "black"} 
+                      {this.props.circleColor}={this.state.player2Tokens[0] ? "#c30c0c" : "black"} 
+                      {this.props.circleColor}={this.state.player2Tokens[1] ? "#c30c0c" : "black"} 
                       </div>
 
                       <div >
-                      {this.props.circleColor}={this.props.player2Tokens[2] ? "#c30c0c" : "black"} 
-                      {this.props.circleColor}={this.props.player2Tokens[3] ? "#c30c0c" : "black"} 
+                      {this.props.circleColor}={this.state.player2Tokens[2] ? "#c30c0c" : "black"} 
+                      {this.props.circleColor}={this.state.player2Tokens[3] ? "#c30c0c" : "black"} 
                       </div>
                     </div>
                   </div>
