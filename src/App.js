@@ -30,7 +30,7 @@ class App extends React.Component {
 
     this.lancerDee = this.lancerDee.bind(this)
     this.renderVictory = this.renderVictory.bind(this)
-    this.elseVictory = this.elseVictory.bind(this)
+    this.renderBoard = this.renderBoard.bind(this)
     
   }
 
@@ -77,66 +77,6 @@ class App extends React.Component {
     }
   }
 
-  render() {
-    return(
-      <NumeroDee onClick={() => this.lancerDee()} />
-    )
-  }
-  
-elseVictory() {
-  return (
-
-    <div className=" bg-g">
-      <div className="offset-2 py-4">
-        <div id="jeu">
-
-          <div className="grid-game">
-
-            {this.renderCircles(1, 1)}
-
-            <div className="flex">
-              {this.renderCircles(2, 9)}
-            </div>
-
-            {this.renderCircles(10, 10)}
-
-            <div className="flex grid-item-4">
-              {this.renderCircles(29, 36)}
-            </div>
-
-            <div className="flex grid-item-5">
-            <div>
-
-              <Containers />                  
-              </div>
-
-              <div>
-                <NumeroDee />
-              </div>
-
-            </div>
-
-            <div className="flex grid-item-6">
-              {this.renderCircles(11, 18)}
-            </div>
-
-            {this.renderCircles(28, 28)}
-
-            <div className="flex grid-item-8">
-              {this.renderCircles(20, 27)}
-            </div>
-
-            {this.renderCircles(19, 19)}
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  )
-}
-}
-
   renderCircles(n, p) {
     let circlesArray = []
 
@@ -180,34 +120,90 @@ elseVictory() {
 
     return circlesArray
   }
+  
+renderBoard() {
+  return (
 
+    <div className=" bg-g">
+      <div className="offset-2 py-4">
+        <div id="jeu">
+
+          <div className="grid-game">
+
+            {this.renderCircles(1, 1)}
+
+            <div className="flex">
+              {this.renderCircles(2, 9)}
+            </div>
+
+            {this.renderCircles(10, 10)}
+
+            <div className="flex grid-item-4">
+              {this.renderCircles(29, 36)}
+            </div>
+
+            <div className="flex grid-item-5">
+            <div>
+
+              <Containers />                  
+              </div>
+
+              <div>
+                {/* <NumeroDee /> */}
+              </div>
+
+            </div>
+
+            <div className="flex grid-item-6">
+              {this.renderCircles(11, 18)}
+            </div>
+
+            {this.renderCircles(28, 28)}
+
+            <div className="flex grid-item-8">
+              {this.renderCircles(20, 27)}
+            </div>
+
+            {this.renderCircles(19, 19)}
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+  );
+  }
   renderVictory() {
-     if (this.state.player1Tokens.indexOf(false) === -1)
+    if (this.state.player1Tokens.indexOf(false) === -1) {
+    return (
+      <div>
+        <Victory />
+        </div>
+    )
+    } else if (this.state.player2Tokens.indexOf(false) === -1) {
      return (
-       <div>
-         <Victory />
-         </div>
+       <div>{this.renderVictory()}</div>
      )
-     } else if (this.state.player2Tokens.indexOf(false) === -1) {
-      return (
-        <div>{this.renderVictory()}</div>
-      )
-    } else {
-     return (
-       <div>
-        {this.elseVictory()}
-       </div>
-     )
-    }
+   } else {
+    return (
+      <div>
+       {this.renderBoard()}
+      </div>
+    )
+   }
+ } 
 
   render() {
 
     return (
-      <Victory />
+      <div>{this.renderVictory()}</div>
     )
   }
 
 }
+
+
 
 
 
